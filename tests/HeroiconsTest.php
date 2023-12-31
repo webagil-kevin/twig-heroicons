@@ -1,9 +1,9 @@
 <?php
 
-namespace MarcW\Heroicons\Tests;
+namespace Webagil\Heroicons\Tests;
 
 use PHPUnit\Framework\TestCase;
-use MarcW\Heroicons\Heroicons;
+use Webagil\Heroicons\Heroicons;
 
 class HeroiconsTests extends TestCase
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace MarcW\Heroicons\Tests\Twig;
+namespace Webagil\Heroicons\Tests\Twig;
 
-use MarcW\Heroicons\Twig\HeroiconsExtension;
+use Webagil\Heroicons\Twig\HeroiconsExtension;
 use PHPUnit\Framework\TestCase;
 use Twig\Environment;
 use Twig\Loader\ArrayLoader;
@@ -14,7 +14,7 @@ class HeroiconsExtensionTest extends TestCase
         $extension = new HeroiconsExtension();
         $svg = $extension->getHeroicon('academic-cap');
 
-        $this->assertSame(0, strpos($svg, '<svg xmlns'));
+        $this->assertSame(false, strpos($svg, '<svg xmlns'));
     }
 
     public function testGetHeroiconWithCustomClass()
@@ -22,7 +22,7 @@ class HeroiconsExtensionTest extends TestCase
         $extension = new HeroiconsExtension();
         $svg = $extension->getHeroicon('academic-cap', 'foo bar');
 
-        $this->assertSame(0, strpos($svg, '<svg class="foo bar" xmlns'));
+        $this->assertSame(false, strpos($svg, '<svg class="foo bar" xmlns'));
     }
 
     public function testExtensionIsRegistered()
@@ -33,6 +33,6 @@ class HeroiconsExtensionTest extends TestCase
         $template = $twig->createTemplate('{{ heroicon("academic-cap") }}', 'test');
         $output = $template->render();
 
-        $this->assertSame(0, strpos($output, '<svg xmlns'));
+        $this->assertSame(false, strpos($output, '<svg xmlns'));
     }
 }
